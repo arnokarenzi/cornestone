@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Letter Amount Table</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+      <h1>Cornestone Work and Daily Records</h1>
+
+      <div class="progress-bar">
+          <div id="progress" style="width: 0%;">0%</div>
+      </div>
+
+      <table id="recordTable">
+          <thead>
+              <tr>
+                  <th>Record Time</th>
+                  <th>Number of Letters</th>
+                  <th>Amount</th>
+                  <th>Comments</th>
+              </tr>
+          </thead>
+          <tbody id="tableBody">
+              <tr id="totalRow">
+                  <td>Total</td>
+                  <td id="totalLetters">0</td>
+                  <td id="totalAmount">0</td>
+                  <td></td>
+              </tr>
+          </tbody>
+      </table>
+
+      <div class="form-section">
+          <label>Number of Letters:</label>
+          <input type="number" id="numberOfLetters" oninput="enableSubmitButton()">
+
+          <label>Comments:</label>
+          <input type="text" id="comments">
+
+          <label>Days Left:</label>
+          <input type="number" id="numberOfDays" disabled>
+
+          <label>Target Letters:</label>
+          <input type="number" id="targetLetters" value="750" oninput="updateProgressBar()">
+
+          <label id="lettersPerDayLabel">Letters to do per day:</label>
+
+          <div class="buttons">
+              <button id="calculateButton" onclick="calculateLettersPerDay()">Calculate Letters Per Day</button>
+              <button id="submitButton" disabled onclick="submitRecord()">Submit</button>
+              <button onclick="resetTable()">Reset</button>
+          </div>
+      </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
